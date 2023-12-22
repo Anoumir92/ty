@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie de Photos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #searchBar {
+            width: 300px;
+            padding: 4px;
+            margin-bottom: 20px;
+        }
+
+        #photoContainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .photo {
+            width: 160px;
+            height: 270px;
+            margin: 10px;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 14px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="searchBar" placeholder="Rechercher une photo..." oninput="filterPhotos()">
+    <div id="photoContainer">
+        <a href="film2.html"><img class="photo" id="Miraculous toxinel et grif noir" src="IMG_9045.jpeg" alt="Miraculous"></a>
+        <a href="film.html"><img class="photo" id="Muraculous le film" src="IMG_9047.jpeg" alt="Nature"></a>
+        <a href="https://vm.tiktok.com/ZM6Bd2Kjx/"><img class="photo" id="TikTok" src="IMG_9145.jpeg" alt="Nature"></a>
+        <!-- Ajoutez d'autres photos avec des IDs ici -->
+    </div>
+
+    <script>
+        function filterPhotos() {
+            var searchInput = document.getElementById('searchBar').value.toLowerCase();
+            var photos = document.getElementsByClassName('photo');
+
+            for (var i = 0; i < photos.length; i++) {
+                var photoId = photos[i].id.toLowerCase();
+                if (photoId.includes(searchInput)) {
+                    photos[i].style.display = 'inline-block';
+                } else {
+                    photos[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
